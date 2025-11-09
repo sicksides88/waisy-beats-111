@@ -219,7 +219,43 @@ We are currently working on completing the API implementation for license purcha
 
 **Note:** The contracts (`BasicLicense`, `StandardLicense`, `ExclusiveLicense`) are production-ready and deployed. In the beta phase, license NFTs will be minted using the platform's master wallet. Once the API is complete, purchases will automatically mint the corresponding license NFT. Future implementation will support direct AVAX payments and user wallet connections for Web3-native experiences.
 
+## 🎨 Frontend Integration
+
+We have included a frontend React component that demonstrates how the web platform displays blockchain certification data to producers.
+
+### AuthorCertificateModal Component
+
+**Location:** `frontend/author-certificate-modal.tsx`
+
+This component showcases the frontend integration with Avalanche blockchain:
+
+**Features:**
+- ✅ Displays blockchain metadata (Token ID, Transaction Hash, Contract Address, Block Number)
+- ✅ Shows certification status (Certified, Pending, Failed, Not Certified)
+- ✅ Provides direct links to SnowTrace (Avalanche blockchain explorer) for on-chain verification
+- ✅ Copy-to-clipboard functionality for blockchain data
+- ✅ User-friendly UI with status badges and loading states
+
+**What it demonstrates:**
+- How producers view their beat certifications in the web dashboard
+- Real-time blockchain data display
+- Integration between frontend and blockchain API
+- User experience for verifying on-chain proof
+
+**Security:**
+- ✅ Only uses public blockchain data (no sensitive information)
+- ✅ Read-only operations (doesn't perform transactions)
+- ✅ Uses public environment variables only (`NEXT_PUBLIC_*`)
+
+See `frontend/README.md` for detailed documentation and usage examples.
+
 ## 📁 Repository Structure
+
+This repository contains:
+- **Smart Contracts**: Solidity contracts for SBTs and license NFTs
+- **ABIs**: Contract ABIs for integration
+- **API**: Backend API endpoint for blockchain operations
+- **Frontend**: React component demonstrating blockchain integration in the web platform
 
 ```
 avalanche-blockchain-implementation/
@@ -245,6 +281,9 @@ avalanche-blockchain-implementation/
 │   └── beats/
 │       └── certify-author/
 │           └── route.ts
+├── frontend/
+│   ├── author-certificate-modal.tsx
+│   └── README.md
 └── README.md
 ```
 
