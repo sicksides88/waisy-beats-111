@@ -26,7 +26,7 @@ Waisy is built as a dual-platform ecosystem:
 ### Mobile App (Artists)
 - **Framework:** React Native (Android)
 - **Payments:** Google Play Billing integration
-- **Blockchain:** Web3 integration for Avalanche wallet connectivity
+- **Blockchain:** Web3 integration for future Avalanche wallet connectivity (planned)
 - **AI Features:** Real-time lyric analysis for beat recommendations
 - **Users:** 5,000+ active users
 
@@ -40,8 +40,9 @@ Waisy is built as a dual-platform ecosystem:
 
 ### Payment Systems
 - **Traditional:** Google Play Billing (70/30 split)
-- **Crypto:** Direct Avalanche (AVAX) integration
+- **Crypto:** Direct Avalanche (AVAX) integration (planned for future)
 - **Features:** Real-time payouts, multi-currency support, automated revenue distribution
+- **Beta Phase:** Currently using master wallet for blockchain operations (minting SBTs and licenses)
 
 ## 🆕 Hackathon Development
 
@@ -65,7 +66,7 @@ All blockchain components are **completely new**:
 - ✅ Soulbound certificate minting for producers
 - ✅ NFT license purchases for artists
 - ✅ On-chain rights verification
-- ✅ AVAX payment integration
+- ✅ Master wallet integration for beta phase minting operations
 
 ## 🏗️ Blockchain Architecture
 
@@ -198,8 +199,11 @@ We have implemented the API endpoint for certifying producer authorship using SB
 **Integration:**
 - Connected to Next.js backend (Node.js/Express on Render)
 - Uses Ethers.js for Avalanche contract interactions
+- **Beta Phase:** Uses master wallet (platform-controlled) to mint SBTs on behalf of producers
 - Real-time Firestore updates for web platform
 - Event listeners for blockchain state synchronization
+
+**Note:** In the current beta phase, all blockchain minting operations (SBTs and licenses) are performed using a master wallet controlled by the platform. This simplifies the user experience during beta testing. Future implementation will support direct user wallet connections for Web3-native interactions.
 
 ### License Purchase API
 
@@ -209,11 +213,11 @@ We are currently working on completing the API implementation for license purcha
 
 **What's Missing:**
 - Automatic license NFT minting on purchase
-- Integration with dual payment flow (Google Play Billing + AVAX)
+- Integration with dual payment flow (Google Play Billing + future AVAX direct payments)
 - License metadata generation and IPFS upload
 - Cross-platform synchronization (mobile purchase → web NFT)
 
-**Note:** The contracts (`BasicLicense`, `StandardLicense`, `ExclusiveLicense`) are production-ready and deployed. Once the API is complete, purchases from both mobile (Google Play) and web (AVAX) will automatically mint the corresponding license NFT to the buyer's wallet.
+**Note:** The contracts (`BasicLicense`, `StandardLicense`, `ExclusiveLicense`) are production-ready and deployed. In the beta phase, license NFTs will be minted using the platform's master wallet. Once the API is complete, purchases will automatically mint the corresponding license NFT. Future implementation will support direct AVAX payments and user wallet connections for Web3-native experiences.
 
 ## 📁 Repository Structure
 
@@ -267,19 +271,19 @@ avalanche-blockchain-implementation/
 
 ### For Producers (Web Platform)
 
-1. **Certify Beat Authorship:** Mint an SBT certificate proving ownership of a beat via web dashboard
+1. **Certify Beat Authorship:** Mint an SBT certificate proving ownership of a beat via web dashboard (minted by platform master wallet in beta)
 2. **Set License Types:** Define which licenses (Basic/Standard/Exclusive) are available for each beat
 3. **Earn Royalties:** Receive automatic royalties on license resales (7.5%, 15%, or 35% depending on license type)
 4. **Track Ownership:** View all certified beats and their on-chain verification status
-5. **Revenue Management:** Real-time tracking of earnings from both traditional and crypto payments
+5. **Revenue Management:** Real-time tracking of earnings from traditional payments (crypto payments planned for future)
 
 ### For Artists (Mobile App)
 
 1. **Browse Certified Beats:** Discover beats with verified blockchain authorship
 2. **AI-Powered Discovery:** Get personalized recommendations based on lyric analysis
-3. **Purchase Licenses:** Buy licenses via Google Play Billing (traditional) or AVAX (crypto) - NFT minting in development
-4. **Own License NFTs:** Receive transferable NFT licenses as proof of purchase (coming soon)
-5. **Resell Licenses:** Transfer licenses to other artists with automatic royalty distribution to original producer
+3. **Purchase Licenses:** Buy licenses via Google Play Billing (traditional payments) - NFT minting in development
+4. **Own License NFTs:** Receive transferable NFT licenses as proof of purchase (coming soon, minted via platform master wallet in beta)
+5. **Resell Licenses:** Transfer licenses to other artists with automatic royalty distribution to original producer (future feature)
 6. **Verify Rights:** On-chain verification of license ownership for commercial use
 
 ## 🔄 Workflow
@@ -291,26 +295,28 @@ avalanche-blockchain-implementation/
 3. Producer configures licenses (Basic, Standard, or Exclusive) via web UI
 4. Producer clicks "Certify on Blockchain" button
 5. Frontend calls `/api/beats/[id]/certify-author` endpoint
-6. Backend validates and mints `AuthorshipCertificate` SBT on Avalanche
+6. Backend validates and mints `AuthorshipCertificate` SBT on Avalanche using platform master wallet
 7. Firestore updates with blockchain metadata (tokenId, txHash, contractAddress)
 8. Web UI displays certification status and on-chain proof
 9. Beat is now searchable in mobile app with blockchain verification
 
 ### License Purchase Flow (In Development)
 
-**Mobile App (Artists):**
+**Mobile App (Artists) - Beta Phase:**
 1. Artist browses beats in mobile app (React Native)
 2. AI recommendations suggest beats based on lyrics
 3. Artist selects license type and purchases via Google Play Billing
-4. **TODO:** Backend processes payment and mints license NFT on Avalanche
-5. **TODO:** NFT appears in artist's wallet (Web3 integration)
+4. **TODO:** Backend processes payment and mints license NFT on Avalanche using platform master wallet
+5. **TODO:** NFT ownership recorded in Firestore (on-chain verification available)
 6. Artist can download beat and use according to license terms
 
-**Web Platform (Future):**
-1. Artist connects Avalanche wallet via Web3
-2. Artist purchases license with AVAX
+**Web Platform (Future - Full Web3 Integration):**
+1. Artist connects Avalanche wallet via Web3 (planned)
+2. Artist purchases license with AVAX (planned)
 3. **TODO:** System mints license NFT directly to connected wallet
 4. NFT ownership verified on-chain for license rights
+
+**Note:** Current beta implementation uses a platform master wallet for all minting operations to simplify the user experience. Future versions will support direct wallet connections for Web3-native interactions.
 
 ## 🌐 Why Avalanche?
 
@@ -321,7 +327,7 @@ We chose Avalanche for our blockchain implementation because it perfectly aligns
 - **EVM Compatible:** Seamless integration with our existing JavaScript/TypeScript stack (Ethers.js, Web3)
 - **Scalability:** Can handle high transaction volumes as our platform grows (currently 5,000+ users, targeting millions)
 - **Ecosystem:** Strong DeFi and NFT ecosystem support for future features
-- **Dual Payment Support:** Enables both traditional (Google Play) and crypto (AVAX) payment flows
+- **Dual Payment Support:** Enables both traditional (Google Play) and future crypto (AVAX) payment flows
 - **Future-Proof:** Avalanche Subnets potential for music-specific custom blockchain
 
 **Perfect Fit:** Avalanche's infrastructure allows us to maintain low operational costs while providing enterprise-grade blockchain features, making it ideal for our serverless architecture and scalable business model.
@@ -338,7 +344,7 @@ We chose Avalanche for our blockchain implementation because it perfectly aligns
 | Producer SBT API | ✅ Complete | Fully functional, integrated with web platform |
 | License Purchase API | 🚧 In Development | Contracts ready, API integration pending |
 | Blockchain Event Listeners | ✅ Complete | Real-time state synchronization |
-| AVAX Payment Integration | ✅ Complete | Web3 wallet connectivity |
+| Master Wallet Integration | ✅ Complete | Platform-controlled wallet for beta phase minting operations |
 
 ### Platform Integration
 
@@ -349,16 +355,16 @@ We chose Avalanche for our blockchain implementation because it perfectly aligns
 | Beat Store (Beta) | ✅ Live | Public beta available |
 | Google Play Billing | ✅ Live | Traditional payment flow working |
 | AI Recommendations | ✅ Live | Real-time lyric analysis |
-| IPFS Metadata Storage | 🚧 Planned | Q2 2024 implementation |
+| IPFS Metadata Storage | 🚧 Planned | Q1 2026 implementation |
 
 ## 🔮 Future Development
 
-### Immediate (Q1 2024)
+### Immediate (Q4 2025 - Current)
 1. **Complete License Purchase API:** Finish integration for automatic license NFT minting on both mobile and web
-2. **Dual Payment Flow:** Seamless integration of Google Play Billing + AVAX payments with automatic NFT minting
+2. **Dual Payment Flow:** Seamless integration of Google Play Billing + future AVAX direct payments with automatic NFT minting
 3. **Cross-Platform Sync:** Real-time NFT ownership sync between mobile app and web platform
 
-### Short-term (Q2 2024)
+### Short-term (Q1 2026)
 4. **IPFS Integration:** Decentralized metadata storage for enhanced immutability
 5. **License Marketplace:** Enable secondary market for license trading with royalty distribution
 6. **Analytics Dashboard:** Track license sales, royalties, and producer earnings on-chain
@@ -384,7 +390,7 @@ We chose Avalanche for our blockchain implementation because it perfectly aligns
 - **Full-Stack JavaScript:** Single language ecosystem (TypeScript/JavaScript) across web, mobile, and blockchain
 - **Serverless Architecture:** Cost-effective scaling with Render hosting
 - **Real-Time Sync:** Firestore real-time updates synchronized with blockchain events
-- **Dual Payment Gateway:** Seamless integration of traditional (Google Play) and crypto (AVAX) payments
+- **Dual Payment Gateway:** Seamless integration of traditional (Google Play) payments with future crypto (AVAX) direct payment support
 - **AI Integration:** Real-time lyric analysis for personalized beat recommendations
 - **Scalable Design:** Architecture supports millions of users with low operational costs
 
