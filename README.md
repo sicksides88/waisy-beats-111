@@ -261,7 +261,9 @@ avalanche-blockchain-implementation/
 
 ## 🧪 How to Test the Demo
 
-We have a **public beta** available for testing. Follow these steps to experience the Avalanche blockchain integration:
+We have a **public beta** available for testing. Follow these steps to experience the Waisy ecosystem and see the Avalanche blockchain integration in action:
+
+**Important Note:** The platform is fully functional with a working beat marketplace, but the complete blockchain integration is still in development. You can experience the full ecosystem (web platform for producers, mobile app for artists, beat store, AI recommendations) and see the blockchain features that are currently implemented (producer SBT certification). The license purchase API with automatic NFT minting is still being completed.
 
 ### Step 1: Join Beta Program
 
@@ -281,38 +283,51 @@ We have a **public beta** available for testing. Follow these steps to experienc
 
 **For Producers:**
 1. Visit web platform: **https://waisy.app/producers**
-2. Upload beats → Soulbound certificates are automatically minted on Avalanche
-3. View producer dashboard with on-chain verification status
-4. Check blockchain metadata (tokenId, txHash, contractAddress) in the dashboard
+2. Upload beats and configure licenses
+3. **Blockchain Feature Available:** Certify beat authorship → Soulbound certificates are minted on Avalanche
+4. View producer dashboard with on-chain verification status
+5. Check blockchain metadata (tokenId, txHash, contractAddress) in the dashboard
 
 **For Artists:**
 1. Open the mobile app (beta version)
-2. Browse beats with verified blockchain authorship
-3. Purchase beats → NFT licenses will be minted (API integration in progress)
-4. Verify ownership on SnowTrace for on-chain proof
+2. Browse beats in the marketplace (5,000+ users active)
+3. Experience AI-powered beat recommendations based on lyrics
+4. Purchase beats via Google Play Billing (traditional payment flow working)
+5. **Blockchain Feature In Progress:** NFT license minting on purchase (API integration being completed)
+6. Verify certified beats on SnowTrace using transaction hashes from producer dashboard
 
 ### Features to Test
 
 **On Web Platform (waisy.app/producers):**
-- ✅ Beat upload with automatic Soulbound certificate minting
-- ✅ Copyright registration on Avalanche blockchain
-- ✅ Producer dashboard with on-chain verification
-- ✅ Real-time blockchain metadata display (transaction hashes, token IDs)
+- ✅ Full producer dashboard and beat management
+- ✅ Beat upload and license configuration
+- ✅ **Blockchain:** Beat authorship certification with Soulbound token minting on Avalanche
+- ✅ **Blockchain:** Copyright registration on Avalanche blockchain
+- ✅ **Blockchain:** Producer dashboard with on-chain verification status
+- ✅ **Blockchain:** Real-time blockchain metadata display (transaction hashes, token IDs, contract addresses)
 
 **On Mobile App (Beta):**
-- ✅ Browse beats with blockchain-verified authorship
-- ✅ AI-powered beat recommendations
-- ✅ Purchase flow (Google Play Billing)
-- ✅ View certified beats with on-chain proof
+- ✅ Full beat marketplace with 5,000+ active users
+- ✅ Browse and discover beats
+- ✅ AI-powered beat recommendations based on lyric analysis
+- ✅ Purchase flow via Google Play Billing (fully functional)
+- ✅ View beats with blockchain-verified authorship (when certified by producers)
+- 🚧 **In Development:** Automatic NFT license minting on purchase (smart contracts ready, API integration in progress)
 
 ### Verification
 
-**Check On-Chain Proof:**
+**Check On-Chain Proof (For Certified Beats):**
+- When a producer certifies a beat, you can verify it on-chain
 - Use **SnowTrace** (Avalanche blockchain explorer) to verify transactions
 - Search by transaction hash (txHash) shown in producer dashboard
 - Verify token ownership and metadata on-chain
+- Example: Look for beats that have been certified by producers to see the blockchain integration in action
 
-**Note:** In the current beta phase, all blockchain operations use a platform master wallet for minting. This simplifies the user experience while maintaining full on-chain verification and transparency.
+**Current Status:**
+- ✅ **Working:** Producer beat certification with SBT minting (fully functional)
+- ✅ **Working:** On-chain verification and transparency
+- 🚧 **In Development:** Automatic NFT license minting when artists purchase beats (contracts deployed, API integration being completed)
+- **Note:** In the current beta phase, all blockchain operations use a platform master wallet for minting. This simplifies the user experience while maintaining full on-chain verification and transparency.
 
 ## 🔐 Security Features
 
