@@ -259,6 +259,61 @@ avalanche-blockchain-implementation/
 
 *Note: Contract addresses should be added here after deployment*
 
+## 🧪 How to Test the Demo
+
+We have a **public beta** available for testing. Follow these steps to experience the Avalanche blockchain integration:
+
+### Step 1: Join Beta Program
+
+**Join Link:** https://play.google.com/apps/testing/com.chillpenguin.waisy888
+
+1. Click "Become a tester"
+2. Wait 5–10 minutes for processing
+
+### Step 2: Download Beta App
+
+**Download:** https://play.google.com/store/apps/details?id=com.chillpenguin.waisy888
+
+1. Install the BETA version with Avalanche NFT licensing
+2. You should see "You're a tester" confirmation
+
+### Step 3: Complete Test Flow
+
+**For Producers:**
+1. Visit web platform: **https://waisy.app/producers**
+2. Upload beats → Soulbound certificates are automatically minted on Avalanche
+3. View producer dashboard with on-chain verification status
+4. Check blockchain metadata (tokenId, txHash, contractAddress) in the dashboard
+
+**For Artists:**
+1. Open the mobile app (beta version)
+2. Browse beats with verified blockchain authorship
+3. Purchase beats → NFT licenses will be minted (API integration in progress)
+4. Verify ownership on SnowTrace for on-chain proof
+
+### Features to Test
+
+**On Web Platform (waisy.app/producers):**
+- ✅ Beat upload with automatic Soulbound certificate minting
+- ✅ Copyright registration on Avalanche blockchain
+- ✅ Producer dashboard with on-chain verification
+- ✅ Real-time blockchain metadata display (transaction hashes, token IDs)
+
+**On Mobile App (Beta):**
+- ✅ Browse beats with blockchain-verified authorship
+- ✅ AI-powered beat recommendations
+- ✅ Purchase flow (Google Play Billing)
+- ✅ View certified beats with on-chain proof
+
+### Verification
+
+**Check On-Chain Proof:**
+- Use **SnowTrace** (Avalanche blockchain explorer) to verify transactions
+- Search by transaction hash (txHash) shown in producer dashboard
+- Verify token ownership and metadata on-chain
+
+**Note:** In the current beta phase, all blockchain operations use a platform master wallet for minting. This simplifies the user experience while maintaining full on-chain verification and transparency.
+
 ## 🔐 Security Features
 
 - **OpenZeppelin Contracts:** All contracts use battle-tested OpenZeppelin implementations
